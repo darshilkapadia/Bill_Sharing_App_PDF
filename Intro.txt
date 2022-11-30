@@ -1,0 +1,5 @@
+This is Friends_Bill_App:
+-> Calculate the bills and share among the friends
+-> Useful during splitting bills or during flatmates grocery sharing amount and many more
+-> This will generate pdf as result and save into your directory
+-> Will also deploy the app at the end of this app
