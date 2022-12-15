@@ -1,6 +1,7 @@
 import webbrowser
 import os
 from fpdf import FPDF
+from filestack import Client
 
 
 class PdfReport:
@@ -13,7 +14,7 @@ class PdfReport:
 
     def generate(self, flatmate1, flatmate2, bill):
 
-        flatmate1_pay = str(round(flatmate1.pays(bill, flatmate2),2))
+        flatmate1_pay = str(round(flatmate1.pays(bill, flatmate2), 2))
         flatmate2_pay = str(round(flatmate2.pays(bill, flatmate1), 2))
 
         # orientation portrait mode
@@ -44,7 +45,18 @@ class PdfReport:
         pdf.cell(w=100, h=25, txt=flatmate2.name, border=0)
         pdf.cell(w=150, h=25, txt=flatmate2_pay, border=0, ln=1)
 
-        pdf.output(f"files/{self.filename}")
+        pdf.output(f"{self.filename}")
 
         # to open file automatically (For mac users)
-        webbrowser.open('file://' + os.path.realpath(f"files/{self.filename}"))
+        webbrowser.open('file://' + os.path.realpath(f"{self.filename}"))
+
+
+class FileSharer:
+    def __init__(self, filepath, api_key='ABhmbjy5GRq6Q0Q3gndZhz'):
+        self.filepath = filepath
+        self.apikey = api_key
+
+    def share(self):
+        client = Client(self.apikey)
+        new_filelink = client.upload(filepath=self.filepath)
+        return new_filelink.url
