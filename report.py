@@ -22,7 +22,7 @@ class PdfReport:
         pdf.add_page()
 
         # Add Icon
-        pdf.image("house.png", w=30, h=30)
+        pdf.image("files/house.png", w=30, h=30)
 
         # Insert Main heading text
         pdf.set_font(family='Times', size=24, style='B')
@@ -44,7 +44,7 @@ class PdfReport:
         pdf.cell(w=100, h=25, txt=flatmate2.name, border=0)
         pdf.cell(w=150, h=25, txt=flatmate2_pay, border=0, ln=1)
 
-        pdf.output(self.filename)
+        pdf.output(f"files/{self.filename}")
 
         # to open file automatically (For mac users)
-        webbrowser.open('file://' + os.path.realpath(self.filename))
+        webbrowser.open('file://' + os.path.realpath(f"files/{self.filename}"))
