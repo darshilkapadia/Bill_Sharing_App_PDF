@@ -8,7 +8,7 @@ from email.mime.multipart import MIMEMultipart
 def send(filename):
     from_mail_addr = "darksharma3@gmail.com"
     from_passwd = "dsvvnyneemmydnqk"
-    to_mail_addr = "kapadiya.darsheeldk@gmail.com"
+    to_mail_addr = "nojobuntilnow@gmail.com"
     subject = "Invoice PDF Report"
 
     # # Some MIME multipart for email
